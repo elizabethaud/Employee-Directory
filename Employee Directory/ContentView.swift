@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var viewModel = DirectoryViewModel()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, Earth!")
+            ForEach(viewModel.employees) { employee in
+                Text(employee.name)
+            }
         }
         .padding()
     }
