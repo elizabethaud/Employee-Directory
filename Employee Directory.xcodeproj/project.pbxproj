@@ -14,6 +14,9 @@
 		F4D3B9E0293952C300C57976 /* Employee_DirectoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B9DF293952C300C57976 /* Employee_DirectoryTests.swift */; };
 		F4D3B9EA293952C300C57976 /* Employee_DirectoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B9E9293952C300C57976 /* Employee_DirectoryUITests.swift */; };
 		F4D3B9EC293952C300C57976 /* Employee_DirectoryUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B9EB293952C300C57976 /* Employee_DirectoryUITestsLaunchTests.swift */; };
+		F4D3BA03293979A000C57976 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA02293979A000C57976 /* ContentService.swift */; };
+		F4D3BA0729397A5800C57976 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0629397A5800C57976 /* Employee.swift */; };
+		F4D3BA0A29397BD800C57976 /* DirectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		F4D3B9E5293952C300C57976 /* Employee DirectoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Employee DirectoryUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4D3B9E9293952C300C57976 /* Employee_DirectoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee_DirectoryUITests.swift; sourceTree = "<group>"; };
 		F4D3B9EB293952C300C57976 /* Employee_DirectoryUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee_DirectoryUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4D3BA02293979A000C57976 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
+		F4D3BA0629397A5800C57976 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +101,13 @@
 		F4D3B9CC293952C200C57976 /* Employee Directory */ = {
 			isa = PBXGroup;
 			children = (
-				F4D3B9CD293952C200C57976 /* Employee_DirectoryApp.swift */,
-				F4D3B9CF293952C200C57976 /* ContentView.swift */,
+				F4D3BA0829397BB800C57976 /* View Model */,
+				F4D3BA0529397A3B00C57976 /* Data Models */,
+				F4D3BA012939798900C57976 /* Services */,
 				F4D3B9D1293952C300C57976 /* Assets.xcassets */,
+				F4D3B9CF293952C200C57976 /* ContentView.swift */,
 				F4D3B9D3293952C300C57976 /* Employee_Directory.entitlements */,
+				F4D3B9FD2939779100C57976 /* Support */,
 				F4D3B9D4293952C300C57976 /* Preview Content */,
 			);
 			path = "Employee Directory";
@@ -127,6 +136,38 @@
 				F4D3B9EB293952C300C57976 /* Employee_DirectoryUITestsLaunchTests.swift */,
 			);
 			path = "Employee DirectoryUITests";
+			sourceTree = "<group>";
+		};
+		F4D3B9FD2939779100C57976 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3B9CD293952C200C57976 /* Employee_DirectoryApp.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		F4D3BA012939798900C57976 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3BA02293979A000C57976 /* ContentService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F4D3BA0529397A3B00C57976 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3BA0629397A5800C57976 /* Employee.swift */,
+			);
+			path = "Data Models";
+			sourceTree = "<group>";
+		};
+		F4D3BA0829397BB800C57976 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +301,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D3B9D0293952C200C57976 /* ContentView.swift in Sources */,
+				F4D3BA0729397A5800C57976 /* Employee.swift in Sources */,
 				F4D3B9CE293952C200C57976 /* Employee_DirectoryApp.swift in Sources */,
+				F4D3BA0A29397BD800C57976 /* DirectoryViewModel.swift in Sources */,
+				F4D3BA03293979A000C57976 /* ContentService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +479,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Square.Employee-Directory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -471,7 +517,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Square.Employee-Directory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -492,7 +540,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Square.Employee-DirectoryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -514,7 +564,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Square.Employee-DirectoryTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -535,7 +587,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Square.Employee-DirectoryUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,7 +610,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Square.Employee-DirectoryUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
