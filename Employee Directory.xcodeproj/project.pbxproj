@@ -17,6 +17,7 @@
 		F4D3BA03293979A000C57976 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA02293979A000C57976 /* ContentService.swift */; };
 		F4D3BA0729397A5800C57976 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0629397A5800C57976 /* Employee.swift */; };
 		F4D3BA0A29397BD800C57976 /* DirectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */; };
+		F4D3BA0C293A907600C57976 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0B293A907600C57976 /* Errors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F4D3BA02293979A000C57976 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
 		F4D3BA0629397A5800C57976 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModel.swift; sourceTree = "<group>"; };
+		F4D3BA0B293A907600C57976 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		F4D3B9CC293952C200C57976 /* Employee Directory */ = {
 			isa = PBXGroup;
 			children = (
+				F4D3BA0E293A908C00C57976 /* Errors */,
 				F4D3BA0829397BB800C57976 /* View Model */,
 				F4D3BA0529397A3B00C57976 /* Data Models */,
 				F4D3BA012939798900C57976 /* Services */,
@@ -168,6 +171,14 @@
 				F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		F4D3BA0E293A908C00C57976 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3BA0B293A907600C57976 /* Errors.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +315,7 @@
 				F4D3BA0729397A5800C57976 /* Employee.swift in Sources */,
 				F4D3B9CE293952C200C57976 /* Employee_DirectoryApp.swift in Sources */,
 				F4D3BA0A29397BD800C57976 /* DirectoryViewModel.swift in Sources */,
+				F4D3BA0C293A907600C57976 /* Errors.swift in Sources */,
 				F4D3BA03293979A000C57976 /* ContentService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

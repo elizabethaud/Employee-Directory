@@ -9,6 +9,7 @@ import Foundation
 
 enum ContentServiceError: Error {
     case URLNotSupported
+    case RequestError
 }
 
 extension ContentServiceError: LocalizedError {
@@ -16,6 +17,8 @@ extension ContentServiceError: LocalizedError {
         switch self {
         case .URLNotSupported:
             return "URL not supported."
+        case .RequestError:
+            return "Request error."
         }
     }
 }
