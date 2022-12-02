@@ -10,19 +10,41 @@ import Foundation
 class ContentService {
     func getEmployees(completionHandler: @escaping (Result<[Employee], Error>) -> Void) {
         guard let url = URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees.json") else {
-            completionHandler(.failure(ContentServiceError.URLNotSupported))
+            completionHandler(.failure(ContentServiceError.urlNotSupported))
             return
         }
         let urlRequest = URLRequest(url: url)
         
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
-            if let error = error {
-                completionHandler(.failure(ContentServiceError.RequestError))
+            if error != nil {
+                completionHandler(.failure(ContentServiceError.requestError))
                 return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                completionHandler(.failure(ContentServiceError.doesNotConformToHTTPResponse))
+                return
+            }
+            
+            if response.statusCode == 200 {
+                guard let data = data else {
+                    completionHandler(.failure(ContentServiceError.noData))
+                    return
+                }
+                DispatchQueue.main.async {
+                    do {
+                        let decodedEmployees = try JSONDecoder().decode([Employee].self, from: data)
+                        completionHandler(.success(decodedEmployees))
+                    } catch let error {
+                        completionHandler(.failure(error))
+                    }
+                }
+                
+            } else {
+                completionHandler(.failure(ContentServiceError.statusCodeNot200))
             }
         }
         
-        
-        completionHandler(.success([Employee(), Employee(), Employee()]))
+        dataTask.resume()
     }
 }

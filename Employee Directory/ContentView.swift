@@ -17,7 +17,7 @@ struct ContentView: View {
                 .foregroundColor(.accentColor)
             Text("Hello, Earth!")
             ForEach(viewModel.employees) { employee in
-                Text(employee.name)
+                Text(employee.fullName)
             }
         }
         .padding()
