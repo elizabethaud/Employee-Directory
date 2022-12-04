@@ -7,18 +7,29 @@
 
 import Foundation
 
+/// Errors thrown by Content Service.
 enum ContentServiceError: Error {
-    case URLNotSupported
-    case RequestError
+    case urlNotSupported
+    case requestError
+    case doesNotConformToHTTPResponse
+    case statusCodeNot200
+    case noData
 }
 
+/// Adds localizedDescription.
 extension ContentServiceError: LocalizedError {
     public var errorDescription: String? {
         switch self {
-        case .URLNotSupported:
+        case .urlNotSupported:
             return "URL not supported."
-        case .RequestError:
+        case .requestError:
             return "Request error."
+        case .doesNotConformToHTTPResponse:
+            return "Does not conform to http response."
+        case .statusCodeNot200:
+            return "Status code was not 200."
+        case .noData:
+            return "No data came back with request."
         }
     }
 }
