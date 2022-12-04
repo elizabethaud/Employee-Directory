@@ -12,11 +12,12 @@ struct DirectoryView: View {
     @StateObject var viewModel = DirectoryViewModel()
     
     var body: some View {
-        VStack {
-            ForEach(viewModel.employees) { employee in
-                Text(employee.fullName)
-                Text(employee.emailAddress)
-                Divider()
+        ScrollView {
+            VStack {
+                ForEach(viewModel.employees) { employee in
+                    EmployeeView(employee: employee)
+                    Divider()
+                }
             }
         }
         .padding()

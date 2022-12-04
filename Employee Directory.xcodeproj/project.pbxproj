@@ -17,8 +17,12 @@
 		F4D3BA03293979A000C57976 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA02293979A000C57976 /* ContentService.swift */; };
 		F4D3BA0729397A5800C57976 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0629397A5800C57976 /* Employee.swift */; };
 		F4D3BA0A29397BD800C57976 /* DirectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */; };
-		F4D3BA0C293A907600C57976 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0B293A907600C57976 /* Errors.swift */; };
+		F4D3BA0C293A907600C57976 /* ContentServiceErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA0B293A907600C57976 /* ContentServiceErrors.swift */; };
 		F4D3BA12293D4D2900C57976 /* DirectoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA11293D4D2900C57976 /* DirectoryView.swift */; };
+		F4D3BA15293D508300C57976 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA14293D508300C57976 /* ImageLoader.swift */; };
+		F4D3BA17293D528800C57976 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA16293D528800C57976 /* AsyncImage.swift */; };
+		F4D3BA19293D579100C57976 /* ImageLoaderErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA18293D579100C57976 /* ImageLoaderErrors.swift */; };
+		F4D3BA1B293D5E1C00C57976 /* EmployeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA1A293D5E1C00C57976 /* EmployeeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +57,12 @@
 		F4D3BA02293979A000C57976 /* ContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentService.swift; sourceTree = "<group>"; };
 		F4D3BA0629397A5800C57976 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		F4D3BA0929397BD800C57976 /* DirectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModel.swift; sourceTree = "<group>"; };
-		F4D3BA0B293A907600C57976 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		F4D3BA0B293A907600C57976 /* ContentServiceErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentServiceErrors.swift; sourceTree = "<group>"; };
 		F4D3BA11293D4D2900C57976 /* DirectoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryView.swift; sourceTree = "<group>"; };
+		F4D3BA14293D508300C57976 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		F4D3BA16293D528800C57976 /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		F4D3BA18293D579100C57976 /* ImageLoaderErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderErrors.swift; sourceTree = "<group>"; };
+		F4D3BA1A293D5E1C00C57976 /* EmployeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				F4D3BA02293979A000C57976 /* ContentService.swift */,
+				F4D3BA14293D508300C57976 /* ImageLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -179,7 +188,8 @@
 		F4D3BA0E293A908C00C57976 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
-				F4D3BA0B293A907600C57976 /* Errors.swift */,
+				F4D3BA0B293A907600C57976 /* ContentServiceErrors.swift */,
+				F4D3BA18293D579100C57976 /* ImageLoaderErrors.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -187,7 +197,9 @@
 		F4D3BA13293D4D9C00C57976 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F4D3BA16293D528800C57976 /* AsyncImage.swift */,
 				F4D3BA11293D4D2900C57976 /* DirectoryView.swift */,
+				F4D3BA1A293D5E1C00C57976 /* EmployeeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -323,11 +335,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4D3B9D0293952C200C57976 /* ContentView.swift in Sources */,
+				F4D3BA17293D528800C57976 /* AsyncImage.swift in Sources */,
 				F4D3BA0729397A5800C57976 /* Employee.swift in Sources */,
+				F4D3BA1B293D5E1C00C57976 /* EmployeeView.swift in Sources */,
 				F4D3B9CE293952C200C57976 /* Employee_DirectoryApp.swift in Sources */,
 				F4D3BA0A29397BD800C57976 /* DirectoryViewModel.swift in Sources */,
-				F4D3BA0C293A907600C57976 /* Errors.swift in Sources */,
+				F4D3BA0C293A907600C57976 /* ContentServiceErrors.swift in Sources */,
 				F4D3BA12293D4D2900C57976 /* DirectoryView.swift in Sources */,
+				F4D3BA19293D579100C57976 /* ImageLoaderErrors.swift in Sources */,
+				F4D3BA15293D508300C57976 /* ImageLoader.swift in Sources */,
 				F4D3BA03293979A000C57976 /* ContentService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
