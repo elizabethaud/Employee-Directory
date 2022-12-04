@@ -7,7 +7,9 @@
 
 import Foundation
 
+/// Service used to get employee data from aws server.
 class ContentService {
+    /// Get employee data from aws server.
     func getEmployees(completionHandler: @escaping (Result<[Employee], Error>) -> Void) {
         guard let url = URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees.json") else {
             completionHandler(.failure(ContentServiceError.urlNotSupported))
@@ -33,9 +35,10 @@ class ContentService {
                 }
                 DispatchQueue.main.async {
                     do {
-                        let decodedEmployees = try JSONDecoder().decode([Employee].self, from: data)
+                        let decodedEmployees = try self.decodeEmployees(data: data)
                         completionHandler(.success(decodedEmployees))
                     } catch let error {
+                        print(error)
                         completionHandler(.failure(error))
                     }
                 }
@@ -46,5 +49,13 @@ class ContentService {
         }
         
         dataTask.resume()
+    }
+    
+    /// Decode a list of employees.
+    func decodeEmployees(data: Data) throws -> [Employee] {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        let decodedEmployeeContainer = try decoder.decode(EmployeeContainer.self, from: data)
+        return decodedEmployeeContainer.employees
     }
 }

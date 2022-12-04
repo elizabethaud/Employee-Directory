@@ -7,10 +7,15 @@
 
 import Foundation
 
+/// View model for Employee Directory content page.
 class DirectoryViewModel: ObservableObject {
+    /// All employees to be displayed on the page.
     @Published var employees: [Employee]
+    
+    /// Service that gets Employees.
     let contentService = ContentService()
     
+    /// Upon initialization, get employees and populate the view model.
     init() {
         self.employees = []
         contentService.getEmployees(completionHandler: { result in

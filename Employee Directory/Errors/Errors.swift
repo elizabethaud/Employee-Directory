@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Errors thrown by Content Service.
 enum ContentServiceError: Error {
     case urlNotSupported
     case requestError
@@ -15,6 +16,7 @@ enum ContentServiceError: Error {
     case noData
 }
 
+/// Adds localizedDescription.
 extension ContentServiceError: LocalizedError {
     public var errorDescription: String? {
         switch self {
