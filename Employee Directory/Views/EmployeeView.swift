@@ -42,6 +42,20 @@ struct EmployeeView: View {
         return result
     }
     
+    func formatEmployeeType(type: String) -> String {
+        var result = ""
+        
+        for ch in type {
+            if ch == "_" {
+                result.append(" ")
+            } else {
+                result.append(ch)
+            }
+        }
+        
+        return result
+    }
+    
     var body: some View {
         HStack {
             asyncImage
@@ -52,6 +66,7 @@ struct EmployeeView: View {
             VStack(alignment: .leading) {
                 Text(employee.fullName).font(.system(size: 10)).bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
+                Text(formatEmployeeType(type: employee.employeeType.rawValue)).font(.system(size: 10))
                 Text(employee.emailAddress).font(.system(size: 10))
                 Text(formatPhoneNumber(with: "(XXX) - XXX - XXXX", phone: employee.phoneNumber)).font(.system(size: 10))
                     .padding(.bottom, 8)
