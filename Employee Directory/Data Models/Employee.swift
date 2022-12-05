@@ -43,4 +43,39 @@ struct Employee: Codable, Identifiable {
         self.team = "Queso"
         self.employeeType = .FULL_TIME
     }
+    
+    // Format phone number to legable mask.
+    // https://stackoverflow.com/questions/32364055/formatting-phone-number-in-swift
+    func formattedPhoneNumber() -> String {
+        let mask = "(XXX) - XXX - XXXX"
+        let numbers = phoneNumber.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        var result = ""
+        var index = numbers.startIndex
+        
+        for ch in mask where index < numbers.endIndex {
+            if ch == "X" {
+                result.append(numbers[index])
+                index = numbers.index(after: index)
+            } else {
+                result.append(ch)
+            }
+        }
+        return result
+    }
+    
+    // Format employee type to legable string.
+    func formattedEmployeeType() -> String {
+        var result = ""
+        
+        for ch in employeeType.rawValue {
+            if ch == "_" {
+                result.append(" ")
+            } else {
+                result.append(ch)
+            }
+        }
+        
+        return result
+    }
+    
 }

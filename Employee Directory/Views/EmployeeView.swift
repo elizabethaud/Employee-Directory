@@ -24,38 +24,6 @@ struct EmployeeView: View {
         }
     }
     
-    // Format phone number to legable mask.
-    // https://stackoverflow.com/questions/32364055/formatting-phone-number-in-swift
-    func formatPhoneNumber(with mask: String, phone: String) -> String {
-        let numbers = phone.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
-        var result = ""
-        var index = numbers.startIndex
-        
-        for ch in mask where index < numbers.endIndex {
-            if ch == "X" {
-                result.append(numbers[index])
-                index = numbers.index(after: index)
-            } else {
-                result.append(ch)
-            }
-        }
-        return result
-    }
-    
-    func formatEmployeeType(type: String) -> String {
-        var result = ""
-        
-        for ch in type {
-            if ch == "_" {
-                result.append(" ")
-            } else {
-                result.append(ch)
-            }
-        }
-        
-        return result
-    }
-    
     var body: some View {
         HStack {
             asyncImage
@@ -66,9 +34,9 @@ struct EmployeeView: View {
             VStack(alignment: .leading) {
                 Text(employee.fullName).font(.system(size: 10)).bold()
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text(formatEmployeeType(type: employee.employeeType.rawValue)).font(.system(size: 10))
+                Text(employee.formattedEmployeeType()).font(.system(size: 10))
                 Text(employee.emailAddress).font(.system(size: 10))
-                Text(formatPhoneNumber(with: "(XXX) - XXX - XXXX", phone: employee.phoneNumber)).font(.system(size: 10))
+                Text(employee.formattedPhoneNumber()).font(.system(size: 10))
                     .padding(.bottom, 8)
                 Text(employee.biography).font(.system(size: 10))
             }
