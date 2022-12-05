@@ -24,23 +24,44 @@ struct EmployeeView: View {
         }
     }
     
+    // Format phone number to legable mask.
+    // https://stackoverflow.com/questions/32364055/formatting-phone-number-in-swift
+    func formatPhoneNumber(with mask: String, phone: String) -> String {
+        let numbers = phone.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
+        var result = ""
+        var index = numbers.startIndex
+        
+        for ch in mask where index < numbers.endIndex {
+            if ch == "X" {
+                result.append(numbers[index])
+                index = numbers.index(after: index)
+            } else {
+                result.append(ch)
+            }
+        }
+        return result
+    }
+    
     var body: some View {
-        HStack(spacing: 5) {
+        HStack {
             asyncImage
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 100, height: 100)
                 .cornerRadius(20)
-                .padding()
+                .padding(8)
             VStack(alignment: .leading) {
-                Text(employee.fullName).font(.system(size: 16))
-                Text(employee.emailAddress).font(.system(size: 16))
+                Text(employee.fullName).font(.system(size: 10)).bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                Text(employee.emailAddress).font(.system(size: 10))
+                Text(formatPhoneNumber(with: "(XXX) - XXX - XXXX", phone: employee.phoneNumber)).font(.system(size: 10))
+                    .padding(.bottom, 8)
+                Text(employee.biography).font(.system(size: 10))
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.trailing, 8)
         }
-        .overlay(
-            RoundedRectangle(cornerRadius: 25)
-                .stroke(Color.purple, lineWidth: 2))
-        //.border(Color.purple, width: 5)
-        //.cornerRadius(20)
+        .overlay(RoundedRectangle(cornerRadius: 25)
+            .stroke(Color.gray, lineWidth: 0.5))
+        .padding([.leading, .trailing], 8)
     }
 }

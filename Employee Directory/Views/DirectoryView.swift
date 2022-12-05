@@ -16,7 +16,6 @@ struct DirectoryView: View {
             VStack {
                 ForEach(viewModel.employees) { employee in
                     EmployeeView(employee: employee)
-                    Divider()
                 }
             }.padding([.top, .bottom], 5)
         }
