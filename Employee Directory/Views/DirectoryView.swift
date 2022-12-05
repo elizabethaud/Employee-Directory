@@ -12,13 +12,13 @@ struct DirectoryView: View {
     @StateObject var viewModel = DirectoryViewModel()
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 ForEach(viewModel.employees) { employee in
                     EmployeeView(employee: employee)
                     Divider()
                 }
-            }
+            }.padding([.top, .bottom], 5)
         }
         .padding()
     }

@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+/// View of an individual employee.
 struct EmployeeView: View {
     let employee: Employee
     let asyncImage: AsyncImage?
@@ -24,10 +25,22 @@ struct EmployeeView: View {
     }
     
     var body: some View {
-        VStack {
+        HStack(spacing: 5) {
             asyncImage
-            Text(employee.fullName)
-            Text(employee.emailAddress)
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 100, height: 100)
+                .cornerRadius(20)
+                .padding()
+            VStack(alignment: .leading) {
+                Text(employee.fullName).font(.system(size: 16))
+                Text(employee.emailAddress).font(.system(size: 16))
+            }
+            .padding(.trailing, 8)
         }
+        .overlay(
+            RoundedRectangle(cornerRadius: 25)
+                .stroke(Color.purple, lineWidth: 2))
+        //.border(Color.purple, width: 5)
+        //.cornerRadius(20)
     }
 }

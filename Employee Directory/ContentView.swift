@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+/// Main content view for the app.
 struct ContentView: View {
-    
     var body: some View {
         VStack {
             DirectoryView()
