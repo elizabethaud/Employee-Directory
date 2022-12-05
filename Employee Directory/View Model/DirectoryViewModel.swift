@@ -22,6 +22,11 @@ class DirectoryViewModel: ObservableObject {
             switch result {
             case .success(let employees):
                 self.employees = employees
+                // todol...
+                let directory = Directory(employees: employees)
+                for employee in directory.directory.values {
+                    print(employee)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
