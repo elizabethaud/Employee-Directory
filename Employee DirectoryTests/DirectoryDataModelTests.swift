@@ -8,28 +8,68 @@
 import XCTest
 
 final class DirectoryDataModelTests: XCTestCase {
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-    
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
+    func setUpFullEmployees() -> [Employee] {
+        guard let jsonData = EmployeeJsonData.employeesJson.data(using: .utf8) else {
+            XCTFail("Failed to construct json data.")
+            return []
         }
+        
+        var employeeContainer = EmployeeContainer(employees: [])
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            employeeContainer = try decoder.decode(EmployeeContainer.self, from: jsonData)
+        } catch {
+            print(error)
+            XCTFail("Could not decode employees.")
+            return []
+        }
+        
+        return employeeContainer.employees
     }
     
+    func setUpEmptyEmployees() -> [Employee] {
+        guard let jsonData = EmployeeJsonData.emptyEmployeesJson.data(using: .utf8) else {
+            XCTFail("Failed to construct json data.")
+            return []
+        }
+        
+        var employeeContainer = EmployeeContainer(employees: [])
+        do {
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
+            employeeContainer = try decoder.decode(EmployeeContainer.self, from: jsonData)
+        } catch {
+            print(error)
+            XCTFail("Could not decode employees.")
+            return []
+        }
+        
+        return employeeContainer.employees
+    }
+    
+    func testDirectoryDataModel() {
+        let employees = setUpFullEmployees()
+        let directory = Directory(employees: employees)
+        
+        XCTAssertEqual(directory.teamDirectories.count, 10)
+        let employeeOne = directory.teamDirectories[0].employees[0]
+        XCTAssertEqual(employeeOne.fullName, "Justine Mason")
+        XCTAssertEqual(employeeOne.phoneNumber, "5553280123")
+        XCTAssertEqual(employeeOne.emailAddress, "jmason.demo@squareup.com")
+        XCTAssertEqual(employeeOne.employeeType, .FULL_TIME)
+        
+        let employeeTwo = directory.teamDirectories[9].employees[0]
+        XCTAssertEqual(employeeTwo.fullName, "Jack Dorsey")
+        XCTAssertEqual(employeeTwo.phoneNumber, "5554544932")
+        XCTAssertEqual(employeeTwo.emailAddress, "jdorsey.demo@squareup.com")
+        XCTAssertEqual(employeeTwo.employeeType, .FULL_TIME)
+    }
+    
+    func testEmptyDirectoryDataModel() {
+        let employees = setUpEmptyEmployees()
+        let directory = Directory(employees: employees)
+        
+        XCTAssertTrue(directory.teamDirectories.isEmpty)
+    }
 }

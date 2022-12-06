@@ -13,10 +13,11 @@ class DirectoryViewModel: ObservableObject {
     @Published var directory: Directory
     
     /// Service that gets Employees.
-    let contentService = ContentService()
+    let contentService: ContentNetworkService
     
     /// Upon initialization, get employees and populate the view model.
-    init() {
+    init(contentService: ContentNetworkService = ContentService()) {
+        self.contentService = contentService
         self.directory = Directory(employees: [])
         refreshDirectory()
     }

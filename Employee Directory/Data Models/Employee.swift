@@ -47,7 +47,7 @@ struct Employee: Codable, Identifiable {
     /// Format phone number to legable mask.
     /// https://stackoverflow.com/questions/32364055/formatting-phone-number-in-swift
     func formattedPhoneNumber() -> String {
-        let mask = "(XXX) - XXX - XXXX"
+        let mask = "(XXX) XXX - XXXX"
         let numbers = phoneNumber.replacingOccurrences(of: "[^0-9]", with: "", options: .regularExpression)
         var result = ""
         var index = numbers.startIndex

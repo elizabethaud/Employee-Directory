@@ -7,11 +7,24 @@
 
 import Foundation
 
+protocol ContentNetworkService {
+    func getEmployees(completionHandler: @escaping (Result<[Employee], Error>) -> Void)
+}
+
 /// Service used to get employee data from aws server.
-class ContentService {
+class ContentService: ContentNetworkService {
+    /// Successful employee endpoint
+    static let employeeURL = "https://s3.amazonaws.com/sq-mobile-interview/employees.json"
+    
+    /// Malformed employee endpoint
+    static let malformedEmployeeURL = "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json"
+    
+    /// Empty employee endpoint
+    static let emptyEmployeeEndpoint = "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json"
+    
     /// Get employee data from aws server.
     func getEmployees(completionHandler: @escaping (Result<[Employee], Error>) -> Void) {
-        guard let url = URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees.json") else {
+        guard let url = URL(string: ContentService.employeeURL) else {
             completionHandler(.failure(ContentServiceError.urlNotSupported))
             return
         }
@@ -40,11 +53,13 @@ class ContentService {
                     } catch let error {
                         print(error)
                         completionHandler(.failure(error))
+                        return
                     }
                 }
                 
             } else {
                 completionHandler(.failure(ContentServiceError.statusCodeNot200))
+                return
             }
         }
         

@@ -14,9 +14,13 @@ struct DirectoryView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            ForEach(viewModel.directory.teamDirectories) { teamDirectory in
-                Text(teamDirectory.team)
-                TeamView(employees: teamDirectory.employees)
+            if !viewModel.directory.teamDirectories.isEmpty {
+                ForEach(viewModel.directory.teamDirectories) { teamDirectory in
+                    Text(teamDirectory.team)
+                    TeamView(employees: teamDirectory.employees)
+                }
+            } else {
+                Text("No employees to be shown!")
             }
         }
         .padding()
