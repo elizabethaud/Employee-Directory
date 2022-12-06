@@ -7,16 +7,27 @@
 
 import Foundation
 
+struct TeamDirectory: Identifiable {
+    let id = UUID()
+    let team: String
+    var employees: [Employee]
+    
+    init(team: String, employees: [Employee]) {
+        self.team = team
+        self.employees = employees
+    }
+}
+
 struct Directory {
-    var directory = Dictionary<String, [Employee]>()
+    var teamDirectories = [TeamDirectory]()
     
     init(employees: [Employee]) {
         for employee in employees {
-            guard var entry = directory[employee.team] else {
-                directory[employee.team] = [employee]
-                return
+            if let teamIndex = teamDirectories.firstIndex(where: { $0.team == employee.team }) {
+                teamDirectories[teamIndex].employees.append(employee)
+            } else {
+                teamDirectories.append(TeamDirectory(team: employee.team, employees: [employee]))
             }
-            entry.append(employee)
         }
     }
 }

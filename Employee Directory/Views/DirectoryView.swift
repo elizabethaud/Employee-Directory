@@ -7,17 +7,16 @@
 
 import SwiftUI
 
-/// View that holds all of the Employees in the directory.
+/// View that holds the entire directory - all teams and employees within teams..
 struct DirectoryView: View {
     @StateObject var viewModel = DirectoryViewModel()
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack {
-                ForEach(viewModel.employees) { employee in
-                    EmployeeView(employee: employee)
-                }
-            }.padding([.top, .bottom], 5)
+            ForEach(viewModel.directory.teamDirectories) { teamDirectory in
+                Text(teamDirectory.team)
+                TeamView(employees: teamDirectory.employees)
+            }
         }
         .padding()
     }
