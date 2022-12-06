@@ -37,12 +37,13 @@
 		F4D3BA36293FAC2800C57976 /* ContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA02293979A000C57976 /* ContentService.swift */; };
 		F4D3BA37293FAC2B00C57976 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA14293D508300C57976 /* ImageLoader.swift */; };
 		F4D3BA38293FAC2E00C57976 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3B9CF293952C200C57976 /* ContentView.swift */; };
-		F4D3BA3A293FB36500C57976 /* employeeList.json in Resources */ = {isa = PBXBuildFile; fileRef = F4D3BA39293FB36500C57976 /* employeeList.json */; };
 		F4D3BA3C293FB7D400C57976 /* EmployeeJsonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA3B293FB7D400C57976 /* EmployeeJsonData.swift */; };
 		F4D3BA3E293FC04C00C57976 /* SuccessfulContentServiceFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA3D293FC04C00C57976 /* SuccessfulContentServiceFake.swift */; };
 		F4D3BA40293FC14600C57976 /* ContentServiceTestErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA3F293FC14600C57976 /* ContentServiceTestErrors.swift */; };
 		F4D3BA42293FC66300C57976 /* EmptyContentServiceFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA41293FC66300C57976 /* EmptyContentServiceFake.swift */; };
 		F4D3BA44293FC78700C57976 /* MalformedContentServiceFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA43293FC78700C57976 /* MalformedContentServiceFake.swift */; };
+		F4D3BA48293FD48D00C57976 /* ImageCacheType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA47293FD48D00C57976 /* ImageCacheType.swift */; };
+		F4D3BA4A293FD54C00C57976 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4D3BA49293FD54C00C57976 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,12 +78,13 @@
 		F4D3BA22293EC8B400C57976 /* DirectoryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryViewModelTests.swift; sourceTree = "<group>"; };
 		F4D3BA24293EC8CD00C57976 /* EmployeeDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDataModelTests.swift; sourceTree = "<group>"; };
 		F4D3BA26293EC90000C57976 /* DirectoryDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryDataModelTests.swift; sourceTree = "<group>"; };
-		F4D3BA39293FB36500C57976 /* employeeList.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = employeeList.json; sourceTree = "<group>"; };
 		F4D3BA3B293FB7D400C57976 /* EmployeeJsonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeJsonData.swift; sourceTree = "<group>"; };
 		F4D3BA3D293FC04C00C57976 /* SuccessfulContentServiceFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulContentServiceFake.swift; sourceTree = "<group>"; };
 		F4D3BA3F293FC14600C57976 /* ContentServiceTestErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentServiceTestErrors.swift; sourceTree = "<group>"; };
 		F4D3BA41293FC66300C57976 /* EmptyContentServiceFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyContentServiceFake.swift; sourceTree = "<group>"; };
 		F4D3BA43293FC78700C57976 /* MalformedContentServiceFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MalformedContentServiceFake.swift; sourceTree = "<group>"; };
+		F4D3BA47293FD48D00C57976 /* ImageCacheType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheType.swift; sourceTree = "<group>"; };
+		F4D3BA49293FD54C00C57976 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		F4D3B9CC293952C200C57976 /* Employee Directory */ = {
 			isa = PBXGroup;
 			children = (
+				F4D3BA46293FD47D00C57976 /* ImageCaching */,
 				F4D3BA13293D4D9C00C57976 /* Views */,
 				F4D3BA0E293A908C00C57976 /* Errors */,
 				F4D3BA0829397BB800C57976 /* View Model */,
@@ -153,7 +156,6 @@
 				F4D3BA22293EC8B400C57976 /* DirectoryViewModelTests.swift */,
 				F4D3BA24293EC8CD00C57976 /* EmployeeDataModelTests.swift */,
 				F4D3BA26293EC90000C57976 /* DirectoryDataModelTests.swift */,
-				F4D3BA39293FB36500C57976 /* employeeList.json */,
 			);
 			path = "Employee DirectoryTests";
 			sourceTree = "<group>";
@@ -222,6 +224,15 @@
 				F4D3BA3F293FC14600C57976 /* ContentServiceTestErrors.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4D3BA46293FD47D00C57976 /* ImageCaching */ = {
+			isa = PBXGroup;
+			children = (
+				F4D3BA47293FD48D00C57976 /* ImageCacheType.swift */,
+				F4D3BA49293FD54C00C57976 /* ImageCache.swift */,
+			);
+			path = ImageCaching;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +325,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4D3BA3A293FB36500C57976 /* employeeList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,12 +335,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4D3BA4A293FD54C00C57976 /* ImageCache.swift in Sources */,
 				F4D3B9D0293952C200C57976 /* ContentView.swift in Sources */,
 				F4D3BA21293EBE2000C57976 /* TeamView.swift in Sources */,
 				F4D3BA17293D528800C57976 /* AsyncImage.swift in Sources */,
 				F4D3BA0729397A5800C57976 /* Employee.swift in Sources */,
 				F4D3BA1B293D5E1C00C57976 /* EmployeeView.swift in Sources */,
 				F4D3B9CE293952C200C57976 /* Employee_DirectoryApp.swift in Sources */,
+				F4D3BA48293FD48D00C57976 /* ImageCacheType.swift in Sources */,
 				F4D3BA0A29397BD800C57976 /* DirectoryViewModel.swift in Sources */,
 				F4D3BA0C293A907600C57976 /* ContentServiceErrors.swift in Sources */,
 				F4D3BA12293D4D2900C57976 /* DirectoryView.swift in Sources */,

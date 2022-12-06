@@ -16,7 +16,7 @@ I believe organization and readability are the most important elements you can a
 I spent about 6 hours give or take.
 
 ## Did you make any trade-offs for this project? What would you have done differently with more time?
-I didn't have much time left to work on image caching. I had never worked on caching before, this was a first. I would hope to implement a solid image caching solution that is effective in saving network bandwidth. With more time I could write this with inspiration from an open source library.
+I didn't have much time left to work on image caching. I had never worked on caching before, this was a first. I would hope to implement a solid image caching solution that is effective in saving network bandwidth. Having one cache per imageloader is not an ideal solution, so I would re-implement the imageloader to reference a single cache instance.
 
 ## What do you think is the weakest part of your project?
 As I mentioned above, the image caching was implemented with the most haste and could use the most improvement.
@@ -24,6 +24,7 @@ As I mentioned above, the image caching was implemented with the most haste and 
 ## Did you copy any code or dependencies? Please make sure to attribute them here!
 Phone number string formatting: https://stackoverflow.com/questions/32364055/formatting-phone-number-in-swift
 Async image loading: https://www.vadimbulavin.com/asynchronous-swiftui-image-loading-from-url-with-combine-and-swift/
+Image caching: https://medium.com/@mshcheglov/reusable-image-cache-in-swift-9b90eb338e8d
 
 
 ## Is there any other information you’d like us to know?
