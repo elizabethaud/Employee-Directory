@@ -1,5 +1,5 @@
 //
-//  ContentServiceTests.swift
+//  DirectoryViewModelTests.swift
 //  Employee DirectoryTests
 //
 //  Created by Smetak,Libby on 12/5/22.
@@ -7,29 +7,23 @@
 
 import XCTest
 
-final class ContentServiceTests: XCTestCase {
-    
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+final class DirectoryViewModelTests: XCTestCase {
+    func testDirectoryViewModelWithSuccessfulContentService() {
+        let viewModel = DirectoryViewModel(contentService: SuccessfulContentServiceFake())
+        let employee = viewModel.directory.teamDirectories[0].employees[0]
+        XCTAssertEqual(employee.fullName, "Justine Mason")
+        XCTAssertEqual(employee.phoneNumber, "5553280123")
+        XCTAssertEqual(employee.emailAddress, "jmason.demo@squareup.com")
+        XCTAssertEqual(employee.employeeType, .FULL_TIME)
     }
     
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testDirectoryViewModelWithEmptyContentService() {
+        let viewModel = DirectoryViewModel(contentService: EmptyContentServiceFake())
+        XCTAssertTrue(viewModel.directory.teamDirectories.isEmpty)
     }
     
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testDirectoryViewModelWithMalformedContentService() {
+        let viewModel = DirectoryViewModel(contentService: MalformedContentServiceFake())
+        XCTAssertTrue(viewModel.directory.teamDirectories.isEmpty)
     }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
 }

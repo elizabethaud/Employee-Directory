@@ -1,5 +1,5 @@
 //
-//  SuccessfulContentServiceStub.swift
+//  SuccessfulContentServiceFake.swift
 //  Employee DirectoryTests
 //
 //  Created by Smetak,Libby on 12/6/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SuccessfulContentServiceStub: ContentNetworkService {
+class SuccessfulContentServiceFake: ContentNetworkService {
     func getEmployees(completionHandler: @escaping (Result<[Employee], Error>) -> Void) {
         guard let jsonData = EmployeeJsonData.employeesJson.data(using: .utf8) else {
             completionHandler(.failure(ContentServiceTestError.failedToConstructJsonData))

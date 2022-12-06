@@ -10,9 +10,11 @@ import Combine
 import Foundation
 
 // TODOL:
-// [ ] tests
+// [x] tests
 // [ ] image caching
-// [ ] readme
+// [ ] empty state
+// [ ] error state
+// [x] readme
 
 /// Loads an image.
 /// Credit to this swift blog: https://www.vadimbulavin.com/asynchronous-swiftui-image-loading-from-url-with-combine-and-swift/
