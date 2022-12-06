@@ -18,6 +18,11 @@ class DirectoryViewModel: ObservableObject {
     /// Upon initialization, get employees and populate the view model.
     init() {
         self.directory = Directory(employees: [])
+        refreshDirectory()
+    }
+    
+    /// Update the directory with data from the content service.
+    func refreshDirectory() {
         contentService.getEmployees(completionHandler: { result in
             switch result {
             case .success(let employees):

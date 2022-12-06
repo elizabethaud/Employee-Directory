@@ -9,6 +9,11 @@ import SwiftUI
 import Combine
 import Foundation
 
+// TODOL:
+// [ ] tests
+// [ ] image caching
+// [ ] readme
+
 /// Loads an image.
 /// Credit to this swift blog: https://www.vadimbulavin.com/asynchronous-swiftui-image-loading-from-url-with-combine-and-swift/
 class ImageLoader: ObservableObject {

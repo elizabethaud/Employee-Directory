@@ -9,8 +9,9 @@ import Foundation
 
 import SwiftUI
 
-/// View that holds all of the Employees in a team..
+/// View that holds all of the Employees in a team.
 struct TeamView: View {
+    /// List of employees in the team.
     let employees: [Employee]
     
     init(employees: [Employee]) {

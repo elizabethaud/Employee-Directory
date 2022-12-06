@@ -8,8 +8,9 @@
 import Foundation
 import SwiftUI
 
-/// View that holds an image or a palceholder.
+/// View that holds an image or a placeholder.
 struct AsyncImage: View {
+    /// Loads an image.
     @StateObject private var loader: ImageLoader
     
     init(urlString: String) throws {

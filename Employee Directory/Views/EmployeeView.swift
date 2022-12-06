@@ -10,7 +10,10 @@ import SwiftUI
 
 /// View of an individual employee.
 struct EmployeeView: View {
+    /// The employee to be shown.
     let employee: Employee
+    
+    /// The employee's profile photo.
     let asyncImage: AsyncImage?
     
     init(employee: Employee) {

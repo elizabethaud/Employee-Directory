@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Item that holds all of the employees within a team. Inherits from Identifiable so it can be looped over in the SwiftUI view.
 struct TeamDirectory: Identifiable {
     let id = UUID()
     let team: String
@@ -18,6 +19,7 @@ struct TeamDirectory: Identifiable {
     }
 }
 
+/// Directory that sorts employees by team.
 struct Directory {
     var teamDirectories = [TeamDirectory]()
     
