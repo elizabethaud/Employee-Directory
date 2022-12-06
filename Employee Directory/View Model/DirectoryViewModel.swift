@@ -10,18 +10,23 @@ import Foundation
 /// View model for Employee Directory content page.
 class DirectoryViewModel: ObservableObject {
     /// All employees to be displayed on the page.
-    @Published var employees: [Employee]
+    @Published var directory: Directory
     
     /// Service that gets Employees.
     let contentService = ContentService()
     
     /// Upon initialization, get employees and populate the view model.
     init() {
-        self.employees = []
+        self.directory = Directory(employees: [])
+        refreshDirectory()
+    }
+    
+    /// Update the directory with data from the content service.
+    func refreshDirectory() {
         contentService.getEmployees(completionHandler: { result in
             switch result {
             case .success(let employees):
-                self.employees = employees
+                self.directory = Directory(employees: employees)
             case .failure(let error):
                 print(error.localizedDescription)
             }
